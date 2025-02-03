@@ -413,16 +413,10 @@ On our dashboard, click the hamburger icon at the top left. You want to scroll d
 <br />
 <br />
 <br />
-We want to create an index for archives. That way we can search all the logs, regardless if Wazuh triggered an alert. To do that, we can click on "Create index" at the top right corner so we can name our index here. So I'll type in "Wazuh-archives-**" for everything.
+We want to create an index for archives. That way we can search all the logs, regardless if Wazuh triggered an alert. To do that, we can click on "Create index" at the top right corner so we can name our index. So I'll type in "Wazuh-archives-**" for everything.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/ABrp9o.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -430,97 +424,54 @@ We want to create an index for archives. That way we can search all the logs, re
 I'll click on "Next" and for the time field, I'll select "timestamp". Then, select "Create index pattern". Now, let's head back over to "Discover". We can head over there by clicking on the top left hamburger icon and then "Discover".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/8hgzow.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/rZTjBV.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/SayWcz.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-Select the indexes from the drop-down arrow and then we want to select our archives. Now, it might take a while until events start to flow in, but it will come in eventually. One thing you can do to troubleshoot is cat out the archive file and Mimikatz.
+Select the indexes from the drop-down arrow and then we want to select our archives. Now, it might take a while until events start to flow in, but it will come in eventually. One thing you can do to troubleshoot is cat out the archive file and Mimikatz.If you see it in archives, it will be ingested in the dashboard. It just takes some time. 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/LG7tOH.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/5O0LP3.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
+Now, Wazuh is a bit special. By default, not all logs will show in the manager. Only those that trigger a rule will show up. That is why we had to configure the logs to log everything, making it so regardless of a rule being triggered or not, we want the manager to archive it and allow us to search for them. Now, don't get me wrong. Although what they are doing by default is great, but if we are testing, it hinders our test. Do keep this in mind, if you do play around with Wazuh. 
 <br />
 <br />
-If you see it in archives, it will be ingested in the dashboard. It just takes some time. 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+So in our Wazuh manager CLI, under the following directory path "/var/ossec/logs/archives". If we were to type in "ls", we can see "archives.json" and "archives.log". We definitely see that there are events in those files. If you want to troubleshoot, you can cat out the archive file. So I will cat out "archive.json" and then I'll pipe it into a "grep -i" for ignore case sensitivity. Then, I'll search for "mimikatz". 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/BvfjJs.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/NowEYV.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
+<img src="https://snipboard.io/D5WQM1.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Now, Wazuh is a bit special. By default, not all logs will show in the manager. Only those that trigger a rule will show up. That is why we had to configure the logs to log everything, making it so regardless of a rule being triggered or not, we want the manager to archive it and allow us to search for them.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Now if I don't see anything in my archives, then a Mimikatz event did not generate. So this means that no matter what, I'm not going to see Mimikatz in my Wazuh dashboard. If I don't see any Mimikatz events, the next thing that we can do is try and regenerate it.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/BIYMzi.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<br />
-<br />
-Now, don't get me wrong. Although what they are doing by default is great, but if we are testing, it hinders our test. Do keep this in mind, if you do play around with Wazuh. So in our Wazuh manager CLI, under the following directory path "/var/ossec/logs/archives".
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<br />
-<br />
-If we were to type in "ls", we can see "archives.json" and "archives.log". We definitely see that there are events in those files. If you want to troubleshoot, you can cat out the archive file. So I will cat out "archive.json" and then I'll pipe it into a "grep -i" for ignore case sensitivity.
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<br />
-<br />
-Then, I'll search for "mimikatz". Now if I don't see anything in my archives, then a Mimikatz event did not generate. So this means that no matter what, I'm not going to see Mimikatz in my Wasa dashboard. If I don't see any Mimikatz events, the next thing that we can do is try and regenerate it.
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/E8eYap.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -528,66 +479,52 @@ Then, I'll search for "mimikatz". Now if I don't see anything in my archives, th
 Let's type in "mimikats" again. Hit "Enter". Open up our "Event Viewer" just to make sure that Sysmon is capturing Mimikats. The event ID that I'm most interested in is "Event ID:1" because these are process creations. Here I can see that there is in fact Mimikats.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/0qjbum.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/ctHKQ4.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/EYUGLT.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<br />
-<br />
-So Sysmon is generating on my Windows machine and we did configure our ossec configuration to push Sysmon data over to Wazuh. The next thing we can do is, check our Wazuh manager again and grep for Mimikats. We actually see some data regarding Mimikats in our archive file.
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/McH69U.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-This means that if we search for Mimikats in our Wazuh dashboard and we do not see any events yet, we just need to be a little patient and eventually it will get in there. Let's head over to our dashboard and take a look.
+So Sysmon is generating on my Windows machine and we did configure our ossec configuration to push Sysmon data over to Wazuh. The next thing we can do is check our Wazuh manager again and grep for Mimikats. We actually see some data regarding Mimikats in our archive file. This means that if we search for Mimikats in our Wazuh dashboard and we do not see any events yet, we just need to be a little patient and eventually it will get in there. Let's head over to our dashboard and take a look.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Gc6p5n.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/8j915S.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-I am under the archives index because that is what we want and then I will type in "mimikatz" and hit "Enter". We have two events, that's perfect. Now remember, we are interested in "event ID:1" because this will show us process creations.
+I am under the archives index because that is what we want and then I will type in "mimikatz" and hit "Enter". We have two events, that's perfect. Now remember, we are interested in "event ID:1" because this will show us process creations. If you don't see Mimikats in Wazuh, but you see it in your "archive" log file, you can try and force the ingestion by restarting your Wazuh manager service. Of course, you don't want to do that in production, but because it's demo it's fine.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/BLiM2p.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/h92YZy.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/4sgnPw.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-If you don't see Mimikats in Wazuh, but you see it in your "archive" log file, you can try and force the ingestion by restarting your Wazuh manager service. Of course, you don't want to do that in production, but because it's demo it's fine.
+Now, if I were to expand the "event ID:1" and scroll down a bit, we can take a look at the fields. I noticed that there is a field called "OriginalFileName". We will use this field to craft our alert, because if we were to use a field such as "image". An attacker could simply rename "Mimikats to "Mimicow" and the alert would have been bypassed. However, with the "OriginalFileName" regardless of the name change to "Mimikcow", we should still be able to see it and the alert should trigger.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/wYic4J.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/prkwi8.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -595,58 +532,18 @@ If you don't see Mimikats in Wazuh, but you see it in your "archive" log file, y
 <br />
 <br />
 <br />
-Now, if I were to expand the "event ID:1" and scroll down a bit, we can take a look at the fields. I noticed that there is a field called "OriginalFileName". We will use this field to craft our alert, because if we were to use a field such as "image".
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Now let's start creating our alert. Wazuh has some built-in rules that we can use as a reference stored in the location "/var/ossec/ruleset/rules" and it's located in the Wazuh manager CLI. However, the good news is that we can actually access this on the dashboard itself. So if you don't like playing around with CLI, this is great news for you.
 <br />
 <br />
 <br />
 <br />
-An attacker could simply rename "Mimikats to "Mimikow" and the alert would have been bypassed. However, with the "OriginalFileName" regardless of the name change to "Mimikcow", we should still be able to see it and the alert should trigger.
+To access the rules, you want to click on the home button. Then, there will be a drop-down next to it. Just go ahead and click on that and then select "Management".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/tDBSwL.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<br />
-<br />
-Now let's start creating our alert. Wazuh has some built-in rules that we can use as a reference stored in the location "/var/ossec/ruleset/rules" and it's located in the Wazuh manager CLI. However, the good news is that we can actually access this on the dashboard itself.
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<br />
-<br />
-So if you don't like playing around with CLI, this is great news for you. To access the rules, you want to click on the home button. Then, there will be a drop-down next to it. Just go ahead and click on that and then select "Management".
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/NGzMmh.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -654,13 +551,13 @@ So if you don't like playing around with CLI, this is great news for you. To acc
 You'll see rules over here. Click on "Rules" and now you want to click on "Manage rules files" at the top right. Since we're interested specifically in the "event ID:1" for Sysmon, let's try and find that by typing in "sysmon". Hit "Enter".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/kdFMgt.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/yVJ1XO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/bL2SBz.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -668,13 +565,13 @@ You'll see rules over here. Click on "Rules" and now you want to click on "Manag
 Now immediately I can see there is a "0800-sysmon_id_1". We can take a look at it by clicking on this eye icon. These are Sysmon rules that are built into Wazuh specifically targeting "event ID:1". 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/9wk0Vz.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/XLs1Sz.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/yjDrBO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
