@@ -222,7 +222,15 @@ The next step is to open up our "Services" and restart our Wazuh Service. As a s
 It might take some time until you can actually search for some Sysmon events, so if you do not see it at first that is okay. The next thing we want to do is download Mimikatz onto our machine. We want to make sure that we disable Windows Defender or at least exclude our "Downloads" folder.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/5UhQkN.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+Since it will detect it for sure. For those that don't know what Mimikatz is or does, it is an application that attackers and red teamers use to extract credentials from your machine. Before I download Mimikatz, I will go and exclude the download path. So I'll type in "Security" and select Windows Security. 
+<br />
+<br />
+<img src="https://snipboard.io/kf57Qu.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -233,44 +241,36 @@ It might take some time until you can actually search for some Sysmon events, so
 <br />
 <br />
 <br />
-Since it will detect it for sure. For those that don't know what Mimikatz is or does, it is an application that attackers and red teamers use to extract credentials from your machine. Before I download Mimikatz, I will go and exclude the downloads path.
+I'll dismiss the "Virus and threat protection". Under "Manage Settings" for Virus and threat protection settings, you want to scroll down and click on "Add or remove exclusions".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/m1oi72.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/SCT6Ia.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/7m6XBR.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<br />
-<br />
-So I'll type in "Security" and select Windows Security. I'll dismiss the "Virus and threat protection". Under "Manage Settings" for Virus and threat protection settings, you want to scroll down and click on "Add or remove exclusions". I'll add an exclusion. 
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/1zXMi8.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-I'll add it as a folder and then I'll select my "Downloads" folder to exclude. Select "Yes". Now our downloads folder is excluded. I'll go ahead and download Mimikatz and save it in my downloads folder.
+I'll add an exclusion. I'll add it as a folder and then I'll select my "Downloads" folder to exclude. Now our downloads folder is excluded. I'll go ahead and download Mimikatz and save it in my downloads folder.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/3BhicF.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/zIMrvo.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/vXhSgx.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/2G9Y3K.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -278,13 +278,10 @@ I'll add it as a folder and then I'll select my "Downloads" folder to exclude. S
 If you are downloading Mimikatz, your web browser might block that. Now if you're using Google Chrome like I am, go into your Google Chrome settings and under "Privacy and Security" you want to select "Security".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/YAT7Qk.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/PeQLVl.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -292,13 +289,13 @@ If you are downloading Mimikatz, your web browser might block that. Now if you'r
 Scroll down and select "No protection". Turn that off and now you can try and download Mimikatz. Once Mimikatz is downloaded, I'll right-click it and select "Extract all". Now I have Mimikatz here.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/DNIpgx.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/wGVUM0.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/6MZEXQ.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -306,55 +303,35 @@ Scroll down and select "No protection". Turn that off and now you can try and do
 So what I'll do is open up an administrative Powershell session and then change my directory into Mimiktz. Now I will run ".\mimikatz.exe" and now we'll head back over to Wazuh's dashboard and check if you can see any events related to Mimikatz.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/iBqzxS.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/TlLdXE.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/0Ms64X.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<br />
-<br />
-So I'll type in "mimikatz and hit "Enter". Now, you might not see any events relating to Sysmon or even Mimikatz. That could be because due to the fact that your Syssmon events did not trigger any alerts or rules from Wazuh. Since by default, Wazuh does not log everything and only logs things when a rule or alert is triggered.
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/d1HSTQ.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-Of course, we can change this behavior by going into the Wazuh Manager and configuring the "ossec.com" file. To make it so, it logs everything or we can create a rule that looks at specific events. That way when a particular event does exist, it will trigger an alert in Wazuh and then we can search for it.
+So I'll type in "mimikatz and hit "Enter". Now, you might not see any events relating to Sysmon or even Mimikatz. That could be because due to the fact that your Sysmon events did not trigger any alerts or rules from Wazuh. Since by default, Wazuh does not log everything and only logs things when a rule or alert is triggered. Of course, we can change this behavior by going into the Wazuh Manager and configuring the "ossec.com" file. To make it so, it logs everything or we can create a rule that looks at specific events. That way when a particular event does exist, it will trigger an alert in Wazuh and then we can search for it. So why don't we go and do that. 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/iNj3D1.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Fsx5la.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-So why don't we go and do that. Let's go and modify the "ossec" configuration to log everything. In Wazuh manager's CLI, the first thing we want to do is make sure to create a backup of the "ossec.conf" file and that is located in "cp /var/ossec/etc/ossec.conf ~/ossec-backup".
+Let's go and modify the "ossec" configuration to log everything. In Wazuh manager's CLI, the first thing we want to do is make sure to create a backup of the "ossec.conf" file and that is located in "cp /var/ossec/etc/ossec.conf ~/ossec-backup".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/BY5dP7.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -362,13 +339,7 @@ So why don't we go and do that. Let's go and modify the "ossec" configuration to
 Again, mistakes do happen and if we accidentally overwrite something, we can always revert it back using our backup file. Now let's go ahead and edit that file. So I'll open up the "ossec.com" file and hit "Enter".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/kQY914.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -376,13 +347,10 @@ Again, mistakes do happen and if we accidentally overwrite something, we can alw
 Now, if you look at the bottom-right under "alerts_log" you see a "logall" section and a "logall_json" section. Currently, they are both set to "no". So I'll change this to "yes". Now, essentially this is asking what format do you want the logs to be displayed in.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/ZvomVq.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/EZqDQ1.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -390,13 +358,10 @@ Now, if you look at the bottom-right under "alerts_log" you see a "logall" secti
 I'll save this and hit "yes". Now let's restart the Wazuh manager by typing in "systemctl restart wazuh-manager.service" and then you can hit "Tab" for auto-completion. Now what this does is force Wazuh to begin archiving all the logs and put them into a file called "Archives".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/ASqijX.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/ZsTaNk.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -404,13 +369,7 @@ I'll save this and hit "yes". Now let's restart the Wazuh manager by typing in "
 This file will be located in "cd /var/ossec/logs/archives". Type in "ls". These are the files that will be created and the logs will be placed in here. In order for Wazuh to start ingesting these logs, we need to change our configuration in "filebeat".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/MWmpVK.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -418,27 +377,21 @@ This file will be located in "cd /var/ossec/logs/archives". Type in "ls". These 
 To do that, we type in "nano /etc/filebeat/filebeat.yml". If we were to scroll down, we'll eventually see a setting called "archives: enabled: false". So let's change this to true and then we will save that out.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/8VdX45.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/hXuyN1.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/z1wkW7.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-Just like anything, if you update a configuration you must restart its service. So I'll restart filebeat's service. Now that we've updated filebeat, as well as the ossec configuration. Let's head back over to our Wazuh dashboard and create a new index
+Just like anything, if you update a configuration you must restart its service. So I'll restart filebeat's service. Now that we've updated filebeat, as well as the ossec configuration. Let's head back over to our Wazuh dashboard and create a new index.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/YnyHAR.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -446,13 +399,16 @@ Just like anything, if you update a configuration you must restart its service. 
 On our dashboard, click the hamburger icon at the top left. You want to scroll down to select "Stack Management". Click on "Index Patterns". Then, you'll notice how we have three indexes so far. We have "alerts", "monitoring", and "statistics".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/jNZPqz.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/j0Iuox.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/hXtziN.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/tlLMKc.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
