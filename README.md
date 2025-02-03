@@ -579,52 +579,43 @@ Now immediately I can see there is a "0800-sysmon_id_1". We can take a look at i
 I'll copy one of these for reference and build it out as a custom rule to detect MimiKatz. So let's just select the first one here. I'll select the "rule id" all the way to "rule" and then copy that out.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/NMEZLr.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-Once we copy that, head back and click on "Custom Rules". I'm going to minimize the browser, because you cannot see it, but there's a custom rules button here. I'll go ahead and click on that and immediately we see one "local_rule" file.
+Once we copy that, head back and click on "Custom Rules". I'll go ahead and click on that and immediately we see one "local_rule" file.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/AFzaKl.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/RA80tE.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-We can edit that by clicking on the pencil icon. We want to paste in the rule that we copied into the "local_rule" that already exists, but you want to do that below the rule.
+We can edit that by clicking on the pencil icon. We want to paste in the rule that we copied into the "local_rule" that already exists, but you want to do that below the rule. So one thing to keep in mind is the indentation. I would recommend you follow the same as the rule above and they do use spaces. 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/2chQTr.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/fiyHO9.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/YrLOaV.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-So one thing to keep in mind is the indentation. I would recommend you follow the same as the rule above and they do use spaces. Now, to begin customizing this rule, we'll start with the ID field. Custom rules should always start from '100,000'.
+Now, to begin customizing this rule, we'll start with the ID field. Custom rules should always start from '100,000'. If you look above the rule ID, its '100,001' so I cannot use that. Instead, I'm going to put this as '100,002'. The level is the severity, so the higher the level, the higher the importance is.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/iAanZm.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/zr4OLj.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -632,46 +623,32 @@ So one thing to keep in mind is the indentation. I would recommend you follow th
 <br />
 <br />
 <br />
-If you look above the rule ID, its '100,001' so I cannot use that. Instead, I'm going to put this as '100,002'. The level is the severity, so the higher the level, the higher the importance is.
+The highest level you can add is up to '15'. So for fun, let's just put it as '15'. I'll change '4' to '15'. For the field name, we know that we want "OriginalFileName". So currently, it is looking at "parentImage". I'll remove this and type in "OriginalFileName". 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/dmZehN.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/HRyYcl.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-The highest level you can add is up to '15'. So for fun, let's just put it as '15'. I'll change '4' to '15'. For the field name, we know that we want "OriginalFileName". So currently, it is looking at "parentImage".
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+One thing to keep in mind is case sensitivity. You want to make sure it matches exactly the field name. So for example, I have a capital 'F' and 'N', if I did not capitalize the "F" and then just put it as lowercase "fileName", this alert will never trigger because there's no field name with that. The field name that exists has a capital 'f' for file
 <br />
 <br />
 <br />
 <br />
-I'll remove this and type in "OriginalFileName". One thing to keep in mind is case sensitivity. You want to make sure it matches exactly the field name. So for example, I have a capital "F" and "N", if I did not capitalize the "F" and then just put it as lowercase "fileName", this alert will never trigger because there's no field name with that.
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<br />
-<br />
-The field name that exists has a capital f for file so do keep that in mind when you're creating an alert case sensitivity matters as for the type the PC2 we'll leave it as is it is essentially Rex the bracket question mark I is set to ignore case sensitivity for the value not the field name but the field value so right now it is looking for C or W script .exe I'm just going to remove that and then type in mimicat that way it's searching specifically for mimic cats in the original file name right underneath it options no full log I am going to remove this because I want all the logs for the description it's right now it is scripting interpreter spawn I am going to change this to let's say mimik cats use message detected and for the miter ID I'm going to remove this and type in 03 because that is credential dumping which is what mimik cats is known to do and again just make sure the indentation is the same as the one above and it does use spaces so let's go ahead and save this out and then we can restart the manager once you save it it would automatically tell you to restart and there's a button for for you to do that so I will click on confirm that the manager will be restarted before we run mimik cats just to prove this point I'm going to change its file name and maybe name it as you are awesome exe or actually I'll remove the exe because that is already implied there and then I'll just name it as you are awesome now I'll open up my Powershell exit out mimik cats and actually before I even do all that let's just head over to Security events and double check just to make sure that there's no alert for mimik cats currently there's none so that's perfect so let's head over to our Powershell and now we will type in you are awesome. exe and then I'll hit enter back onto our was dashboard let's go and refresh this scroll all the way down and there you go perfect perfect we even used our renamed mimic cats and the alert still triggered because we are looking at the original file name instead if we were looking at the image the mimik cats executable have been renamed to you are awesome. exe so we were monitoring for an alert specifically for mimik cats as an image field value then our alert would not trigger that is why we should look at the original file name and right here it says Mim cats we did a lot in this video I showed you how to create an alert and how we can customize our Wasa configuration to ingest certain logs in this example we configured cismon to be ingested into Wasa if you are a student or a professional that wants to transition into cyber security I want you to know that I offer free mentorship on my site with no strings attached on there you will also see products that I've personally created in which you can download to help guide you along this journey these products include resume and cover letter templates bookmarks a one-year road map on how to get started in cyber security and a list of interview questions to help you in your next interview also as a sneak peek I am in the process of creating a sock course where there will be over 20 Hands-On labs and multiple projects that you can put onto your resume you can join the wait list if if you choose to do so my mission here is to help you get to where you want to be if you ever have a question about a certain field or what a certain function does I do encourage you to stop and research what that is and learn more about it now in the final episode we will begin performing some automation using Shuffle and the hive and that is it for the video and I hope you found it informative if you do happen to have any questions remember try and research it to find the answer if you can't find the answer leave it in the comment section down below I'll try my best to help you out remember to stay curious and do things differently
+So do keep that in mind when you're creating an alert, "Case sensitivity matters". As for the type, the "pcre2", we'll leave as it is. It is essentially regex. The "(?i) is set to ignore case sensitivity for the field value, not the field.
+  
+So right now, it is looking for 'C' or 'W' "script.exe". I'm just going to remove that and then type in "mimikatz". That way it's searching specifically for Mimikatz in the original file name.
+
+Right underneath, where it says "options" and "no_full_log". I am going to remove this because I want all the logs. For the description, right now it is a scripting interpreter spawn. I'll go ahead and change this to "Mimikatz Usage Detected". For the mitre ID, I'm going to remove this and type in '03' since that is credential dumping, which is what Mimikatz is known to do.
+
+Again, just make sure the indentation is the same as the one above and it does use spaces. Let's rename Mimkatz to "youareawesome". Then let's go ahead and save this out and then we can restart the manager. Once you save, it will automatically tell you to restart and there's a button for you to do that. 
+
+Let's just head over to "Security Events" and double-check just to make sure that there's no alert for Mimikatz. Currently, there's none so that's perfect. So let's head over to our Powershell and now we will type in ".\youareawesome.exe". I'll hit "Enter". 
+
+Now back onto our Wazuh dashboard, let's go and refresh this. Scroll down and there you go. Perfect. We even used our renamed "MimiKatz" and the alert is still triggered because we are looking at the original file name instead. If we were looking at the image, the Mimikatz executable would have been renamed to "youareawesome.exe". So we were monitoring for an alert specifically for Mimikatz as an image field value then our alert would not trigger. That is why we should look at the original file name and right here it says "mimkatz.exe".
+
+We did a lot in this series. I showed you how to create an alert and how we can customize our Wazuh configuration to ingest certain logs. In this example, we configured Sysmon to be ingested into Wazuh. Now in the final episode, we will begin performing some automation using Shuffle and the Hive. Remember to stay curious and do things differently.
